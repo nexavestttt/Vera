@@ -30,18 +30,6 @@ body {
   box-shadow: 0 15px 45px rgba(0,0,0,.10);
 }
 
-/* DEMO LABEL */
-.demo-label {
-  background: #fff3cd;
-  color: #664d03;
-  text-align: center;
-  padding: 9px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: .5px;
-}
-
-/* HEADER */
 .header {
   background: #101828;
   color: white;
@@ -65,7 +53,6 @@ body {
   opacity: .65;
 }
 
-/* CONTENT */
 .content {
   padding: 24px;
 }
@@ -100,7 +87,6 @@ body {
   font-weight: 700;
 }
 
-/* TWO COLUMN INFORMATION */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -113,7 +99,6 @@ body {
   font-weight: 700;
 }
 
-/* COUNTDOWN */
 .timer {
   background: #101828;
   color: white;
@@ -134,7 +119,6 @@ body {
   letter-spacing: 2px;
 }
 
-/* BANK SECTION */
 .bank-title {
   font-size: 17px;
   font-weight: 800;
@@ -163,7 +147,6 @@ body {
   color: #98a2b3;
 }
 
-/* WITHDRAW BUTTON */
 .withdraw {
   width: 100%;
   margin-top: 15px;
@@ -176,7 +159,7 @@ body {
   cursor: not-allowed;
 }
 
-/* ARABIC DEMO NOTICE */
+/* ENGLISH WARNING AT THE BOTTOM */
 .notice {
   background: #fff8e8;
   border: 1px solid #f6dfad;
@@ -184,13 +167,11 @@ body {
   border-radius: 13px;
   padding: 14px;
   font-size: 12px;
-  line-height: 1.7;
-  text-align: right;
-  direction: rtl;
+  line-height: 1.6;
   margin-top: 20px;
+  text-align: left;
 }
 
-/* FOOTER */
 .footer {
   text-align: center;
   color: #98a2b3;
@@ -198,9 +179,7 @@ body {
   margin-top: 18px;
 }
 
-/* MOBILE */
-@media (max-width: 400px) {
-
+@media(max-width:400px) {
   .amount {
     font-size: 31px;
   }
@@ -208,7 +187,6 @@ body {
   #countdown {
     font-size: 32px;
   }
-
 }
 </style>
 </head>
@@ -217,12 +195,6 @@ body {
 
 <div class="demo">
 
-  <!-- DEMO IDENTIFICATION -->
-  <div class="demo-label">
-    DEMOSTRACIÓN / MOCKUP — NO ES UNA CUENTA FINANCIERA REAL
-  </div>
-
-  <!-- HEADER -->
   <div class="header">
 
     <div class="brand">
@@ -242,7 +214,6 @@ body {
 
   <div class="content">
 
-    <!-- BONUS / PROFIT -->
     <div class="card">
 
       <div class="amount-label">
@@ -260,7 +231,6 @@ body {
     </div>
 
 
-    <!-- FEE + STATUS -->
     <div class="grid">
 
       <div class="card">
@@ -291,7 +261,6 @@ body {
     </div>
 
 
-    <!-- COUNTDOWN -->
     <div class="timer card">
 
       <div class="timer-title">
@@ -305,7 +274,6 @@ body {
     </div>
 
 
-    <!-- BANK OPTIONS -->
     <div class="card">
 
       <div class="bank-title">
@@ -368,19 +336,18 @@ body {
     </div>
 
 
-    <!-- FOOTER -->
     <div class="footer">
       © 2026 Rancho Viejo — Demo
     </div>
 
 
-    <!-- ARABIC NOTICE AT THE VERY BOTTOM -->
+    <!-- THIS IS NOW THE ONLY WARNING -->
     <div class="notice">
 
-      هذه الصفحة واجهة تجريبية فقط وليست حسابًا ماليًا حقيقيًا.
-      الرصيد والرسوم والعد التنازلي وخيارات السحب المعروضة هنا
-      لا تمثل حسابًا ماليًا موثقًا أو عملية سحب حقيقية.
-      لا تقم بأي عملية دفع اعتمادًا على هذه الصفحة فقط.
+      This is a demonstration interface only. The displayed balance,
+      fee, countdown and bank-selection controls do not represent
+      a verified financial account or actual withdrawal requirement.
+      No payment should be made based solely on this page.
 
     </div>
 
@@ -391,27 +358,20 @@ body {
 
 <script>
 
-/* =========================================
-   PERSISTENT DEMO COUNTDOWN
-   ========================================= */
-
 const STORAGE_KEY = "rancho_viejo_demo_timer";
 
-/* 18 hours, 12 minutes, 33 seconds */
 const duration =
   (18 * 60 * 60) +
   (12 * 60) +
   33;
 
-let expiry = localStorage.getItem(STORAGE_KEY);
+let expiry =
+  localStorage.getItem(STORAGE_KEY);
 
-/*
-  Create the expiry time only the first time.
-  Refreshing the page will not restart the timer.
-*/
 if (!expiry) {
 
-  expiry = Date.now() + (duration * 1000);
+  expiry =
+    Date.now() + (duration * 1000);
 
   localStorage.setItem(
     STORAGE_KEY,
@@ -423,8 +383,6 @@ if (!expiry) {
 expiry = Number(expiry);
 
 
-/* UPDATE COUNTDOWN */
-
 function updateTimer() {
 
   const remaining =
@@ -433,52 +391,35 @@ function updateTimer() {
   const total =
     Math.floor(remaining / 1000);
 
-
   const hours =
     Math.floor(total / 3600);
 
-
   const minutes =
-    Math.floor(
-      (total % 3600) / 60
-    );
-
+    Math.floor((total % 3600) / 60);
 
   const seconds =
     total % 60;
-
 
   document.getElementById(
     "countdown"
   ).textContent =
 
     String(hours).padStart(2, "0")
-    + ":"
-    +
+    + ":" +
     String(minutes).padStart(2, "0")
-    + ":"
-    +
+    + ":" +
     String(seconds).padStart(2, "0");
 
-
   if (remaining <= 0) {
-
     clearInterval(timer);
-
   }
-
 }
 
-
-/* START TIMER */
 
 updateTimer();
 
 const timer =
-  setInterval(
-    updateTimer,
-    1000
-  );
+  setInterval(updateTimer, 1000);
 
 </script>
 
