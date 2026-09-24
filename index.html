@@ -30,6 +30,7 @@ body {
   box-shadow: 0 15px 45px rgba(0,0,0,.10);
 }
 
+/* DEMO LABEL */
 .demo-label {
   background: #fff3cd;
   color: #664d03;
@@ -40,6 +41,7 @@ body {
   letter-spacing: .5px;
 }
 
+/* HEADER */
 .header {
   background: #101828;
   color: white;
@@ -63,6 +65,7 @@ body {
   opacity: .65;
 }
 
+/* CONTENT */
 .content {
   padding: 24px;
 }
@@ -97,6 +100,7 @@ body {
   font-weight: 700;
 }
 
+/* TWO COLUMN INFORMATION */
 .grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -109,6 +113,7 @@ body {
   font-weight: 700;
 }
 
+/* COUNTDOWN */
 .timer {
   background: #101828;
   color: white;
@@ -129,6 +134,7 @@ body {
   letter-spacing: 2px;
 }
 
+/* BANK SECTION */
 .bank-title {
   font-size: 17px;
   font-weight: 800;
@@ -157,6 +163,7 @@ body {
   color: #98a2b3;
 }
 
+/* WITHDRAW BUTTON */
 .withdraw {
   width: 100%;
   margin-top: 15px;
@@ -169,6 +176,7 @@ body {
   cursor: not-allowed;
 }
 
+/* ARABIC DEMO NOTICE */
 .notice {
   background: #fff8e8;
   border: 1px solid #f6dfad;
@@ -176,9 +184,13 @@ body {
   border-radius: 13px;
   padding: 14px;
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.7;
+  text-align: right;
+  direction: rtl;
+  margin-top: 20px;
 }
 
+/* FOOTER */
 .footer {
   text-align: center;
   color: #98a2b3;
@@ -186,9 +198,17 @@ body {
   margin-top: 18px;
 }
 
-@media(max-width:400px) {
-  .amount { font-size: 31px; }
-  #countdown { font-size: 32px; }
+/* MOBILE */
+@media (max-width: 400px) {
+
+  .amount {
+    font-size: 31px;
+  }
+
+  #countdown {
+    font-size: 32px;
+  }
+
 }
 </style>
 </head>
@@ -197,12 +217,17 @@ body {
 
 <div class="demo">
 
+  <!-- DEMO IDENTIFICATION -->
   <div class="demo-label">
     DEMOSTRACIÓN / MOCKUP — NO ES UNA CUENTA FINANCIERA REAL
   </div>
 
+  <!-- HEADER -->
   <div class="header">
-    <div class="brand">PANEL DE CUENTA</div>
+
+    <div class="brand">
+      PANEL DE CUENTA
+    </div>
 
     <div class="name">
       Rancho Viejo
@@ -211,10 +236,13 @@ body {
     <div class="subtitle">
       Resumen de bonificación
     </div>
+
   </div>
+
 
   <div class="content">
 
+    <!-- BONUS / PROFIT -->
     <div class="card">
 
       <div class="amount-label">
@@ -232,9 +260,11 @@ body {
     </div>
 
 
+    <!-- FEE + STATUS -->
     <div class="grid">
 
       <div class="card">
+
         <div class="amount-label">
           Tarifa indicada
         </div>
@@ -242,9 +272,12 @@ body {
         <div class="value">
           $700 MXN
         </div>
+
       </div>
 
+
       <div class="card">
+
         <div class="amount-label">
           Estado
         </div>
@@ -252,11 +285,13 @@ body {
         <div class="value">
           DEMO
         </div>
+
       </div>
 
     </div>
 
 
+    <!-- COUNTDOWN -->
     <div class="timer card">
 
       <div class="timer-title">
@@ -270,51 +305,61 @@ body {
     </div>
 
 
+    <!-- BANK OPTIONS -->
     <div class="card">
 
       <div class="bank-title">
         Seleccionar banco de México
       </div>
 
+
       <button class="bank" disabled>
         <strong>BBVA México</strong>
         <span>Opción de demostración</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Banorte</strong>
         <span>Opción de demostración</span>
       </button>
 
+
       <button class="bank" disabled>
         <strong>Citibanamex</strong>
         <span>Opción de demostración</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Santander México</strong>
         <span>Opción de demostración</span>
       </button>
 
+
       <button class="bank" disabled>
         <strong>HSBC México</strong>
         <span>Opción de demostración</span>
       </button>
+
 
       <button class="bank" disabled>
         <strong>Scotiabank México</strong>
         <span>Opción de demostración</span>
       </button>
 
+
       <button class="bank" disabled>
         <strong>Banco Azteca</strong>
         <span>Opción de demostración</span>
       </button>
 
+
       <button class="bank" disabled>
         <strong>BanBajío</strong>
         <span>Opción de demostración</span>
       </button>
+
 
       <button class="withdraw" disabled>
         Retirar al banco
@@ -323,17 +368,20 @@ body {
     </div>
 
 
-    <div class="notice">
-      This is a demonstration interface only. The displayed
-      balance, fee, countdown and bank-selection controls
-      do not represent a verified financial account or
-      actual withdrawal requirement. No payment should be
-      made based solely on this page.
+    <!-- FOOTER -->
+    <div class="footer">
+      © 2026 Rancho Viejo — Demo
     </div>
 
 
-    <div class="footer">
-      © 2026 Rancho Viejo — Demo
+    <!-- ARABIC NOTICE AT THE VERY BOTTOM -->
+    <div class="notice">
+
+      هذه الصفحة واجهة تجريبية فقط وليست حسابًا ماليًا حقيقيًا.
+      الرصيد والرسوم والعد التنازلي وخيارات السحب المعروضة هنا
+      لا تمثل حسابًا ماليًا موثقًا أو عملية سحب حقيقية.
+      لا تقم بأي عملية دفع اعتمادًا على هذه الصفحة فقط.
+
     </div>
 
   </div>
@@ -343,38 +391,39 @@ body {
 
 <script>
 
-/*
-  Persistent demonstration countdown.
+/* =========================================
+   PERSISTENT DEMO COUNTDOWN
+   ========================================= */
 
-  Starting value:
-  18 hours, 12 minutes, 33 seconds.
+const STORAGE_KEY = "rancho_viejo_demo_timer";
 
-  The expiry timestamp is stored locally,
-  so refreshing the page does not restart it.
-*/
-
-const STORAGE_KEY =
-  "rancho_viejo_demo_timer";
-
+/* 18 hours, 12 minutes, 33 seconds */
 const duration =
   (18 * 60 * 60) +
   (12 * 60) +
   33;
 
-let expiry =
-  localStorage.getItem(STORAGE_KEY);
+let expiry = localStorage.getItem(STORAGE_KEY);
 
+/*
+  Create the expiry time only the first time.
+  Refreshing the page will not restart the timer.
+*/
 if (!expiry) {
-  expiry =
-    Date.now() + duration * 1000;
+
+  expiry = Date.now() + (duration * 1000);
 
   localStorage.setItem(
     STORAGE_KEY,
     expiry
   );
+
 }
 
 expiry = Number(expiry);
+
+
+/* UPDATE COUNTDOWN */
 
 function updateTimer() {
 
@@ -384,31 +433,52 @@ function updateTimer() {
   const total =
     Math.floor(remaining / 1000);
 
+
   const hours =
     Math.floor(total / 3600);
 
+
   const minutes =
-    Math.floor((total % 3600) / 60);
+    Math.floor(
+      (total % 3600) / 60
+    );
+
 
   const seconds =
     total % 60;
 
+
   document.getElementById(
     "countdown"
   ).textContent =
-    String(hours).padStart(2, "0") + ":" +
-    String(minutes).padStart(2, "0") + ":" +
+
+    String(hours).padStart(2, "0")
+    + ":"
+    +
+    String(minutes).padStart(2, "0")
+    + ":"
+    +
     String(seconds).padStart(2, "0");
 
+
   if (remaining <= 0) {
+
     clearInterval(timer);
+
   }
+
 }
+
+
+/* START TIMER */
 
 updateTimer();
 
 const timer =
-  setInterval(updateTimer, 1000);
+  setInterval(
+    updateTimer,
+    1000
+  );
 
 </script>
 
