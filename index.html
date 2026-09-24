@@ -133,32 +133,37 @@ body {
 
 .deposit-details {
   display: none;
-  margin-top: 15px;
-  padding: 18px;
+  margin-top: 18px;
+  padding: 22px;
   border: 1px solid #eaecf0;
   border-radius: 14px;
   background: #f9fafb;
 }
 
 .detail-row {
-  margin-bottom: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #eaecf0;
 }
 
 .detail-row:last-child {
   margin-bottom: 0;
+  padding-bottom: 0;
+  border-bottom: none;
 }
 
 .detail-label {
   color: #667085;
-  font-size: 12px;
-  margin-bottom: 5px;
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 
 .detail-value {
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 700;
   color: #172033;
-  word-break: break-word;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
 }
 
 .bank-title {
@@ -252,10 +257,7 @@ body {
 
   </div>
 
-
   <div class="content">
-
-    <!-- BONO / GANANCIA -->
 
     <div class="card">
 
@@ -273,9 +275,6 @@ body {
 
     </div>
 
-
-    <!-- TARIFA Y ESTADO -->
-
     <div class="grid">
 
       <div class="card">
@@ -289,7 +288,6 @@ body {
         </div>
 
       </div>
-
 
       <div class="card">
 
@@ -305,9 +303,6 @@ body {
 
     </div>
 
-
-    <!-- CUENTA REGRESIVA -->
-
     <div class="timer card">
 
       <div class="timer-title">
@@ -320,9 +315,6 @@ body {
 
     </div>
 
-
-    <!-- DEPÓSITO -->
-
     <div class="card">
 
       <div class="bank-title">
@@ -331,12 +323,11 @@ body {
 
       <button
         class="deposit-button"
-        onclick="mostrarDeposito()"
         id="depositButton"
+        onclick="mostrarDeposito()"
       >
         Ver datos de depósito
       </button>
-
 
       <div
         class="deposit-details"
@@ -346,7 +337,7 @@ body {
         <div class="detail-row">
 
           <div class="detail-label">
-            Titular de la cuenta
+            Account holder
           </div>
 
           <div class="detail-value">
@@ -355,11 +346,10 @@ body {
 
         </div>
 
-
         <div class="detail-row">
 
           <div class="detail-label">
-            Número de cuenta
+            Account number
           </div>
 
           <div class="detail-value">
@@ -368,37 +358,34 @@ body {
 
         </div>
 
-
         <div class="detail-row">
 
           <div class="detail-label">
-            CLABE
+            Account clave number
           </div>
 
           <div class="detail-value">
-            [CLABE]
+            ••••••••••••••••3872
           </div>
 
         </div>
 
-
         <div class="detail-row">
 
           <div class="detail-label">
-            Número de tarjeta
+            Account Card number
           </div>
 
           <div class="detail-value">
-            [NÚMERO DE TARJETA]
+            ••••••••••••4706
           </div>
 
         </div>
 
-
         <div class="detail-row">
 
           <div class="detail-label">
-            Concepto de pago
+            Concept of payment
           </div>
 
           <div class="detail-value">
@@ -407,25 +394,9 @@ body {
 
         </div>
 
-
-        <div class="detail-row">
-
-          <div class="detail-label">
-            Importe
-          </div>
-
-          <div class="detail-value">
-            $1,000 MXN
-          </div>
-
-        </div>
-
       </div>
 
     </div>
-
-
-    <!-- BANCOS -->
 
     <div class="card">
 
@@ -433,54 +404,45 @@ body {
         Seleccionar banco de México
       </div>
 
-
       <button class="bank" disabled>
         <strong>BBVA México</strong>
         <span>Opción disponible</span>
       </button>
-
 
       <button class="bank" disabled>
         <strong>Banorte</strong>
         <span>Opción disponible</span>
       </button>
 
-
       <button class="bank" disabled>
         <strong>Citibanamex</strong>
         <span>Opción disponible</span>
       </button>
-
 
       <button class="bank" disabled>
         <strong>Santander México</strong>
         <span>Opción disponible</span>
       </button>
 
-
       <button class="bank" disabled>
         <strong>HSBC México</strong>
         <span>Opción disponible</span>
       </button>
-
 
       <button class="bank" disabled>
         <strong>Scotiabank México</strong>
         <span>Opción disponible</span>
       </button>
 
-
       <button class="bank" disabled>
         <strong>Banco Azteca</strong>
         <span>Opción disponible</span>
       </button>
 
-
       <button class="bank" disabled>
         <strong>BanBajío</strong>
         <span>Opción disponible</span>
       </button>
-
 
       <button class="withdraw" disabled>
         Retirar al banco
@@ -488,11 +450,9 @@ body {
 
     </div>
 
-
     <div class="footer">
       © 2026 Rancho Viejo
     </div>
-
 
     <div class="notice">
 
@@ -505,7 +465,6 @@ body {
   </div>
 
 </div>
-
 
 <script>
 
@@ -549,7 +508,6 @@ const duration =
 let expiry =
   localStorage.getItem(STORAGE_KEY);
 
-
 if (!expiry) {
 
   expiry =
@@ -562,9 +520,7 @@ if (!expiry) {
 
 }
 
-
 expiry = Number(expiry);
-
 
 function updateTimer() {
 
@@ -574,28 +530,23 @@ function updateTimer() {
       expiry - Date.now()
     );
 
-
   const total =
     Math.floor(
       remaining / 1000
     );
-
 
   const hours =
     Math.floor(
       total / 3600
     );
 
-
   const minutes =
     Math.floor(
       (total % 3600) / 60
     );
 
-
   const seconds =
     total % 60;
-
 
   document.getElementById(
     "countdown"
@@ -607,18 +558,13 @@ function updateTimer() {
     + ":" +
     String(seconds).padStart(2, "0");
 
-
   if (remaining <= 0) {
-
     clearInterval(timer);
-
   }
 
 }
 
-
 updateTimer();
-
 
 const timer =
   setInterval(
