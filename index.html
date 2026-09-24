@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Rancho Viejo — Demo</title>
+
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  background: #f3f6fa;
+  color: #172033;
+  padding: 20px;
+}
+
+.demo {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,.10);
+}
+
+.demo-label {
+  background: #fff3cd;
+  color: #664d03;
+  text-align: center;
+  padding: 9px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .5px;
+}
+
+.header {
+  background: #101828;
+  color: white;
+  padding: 28px 24px;
+}
+
+.brand {
+  font-size: 13px;
+  opacity: .7;
+  margin-bottom: 20px;
+}
+
+.name {
+  font-size: 27px;
+  font-weight: 800;
+}
+
+.subtitle {
+  margin-top: 5px;
+  font-size: 13px;
+  opacity: .65;
+}
+
+.content {
+  padding: 24px;
+}
+
+.card {
+  border: 1px solid #eaecf0;
+  border-radius: 17px;
+  padding: 20px;
+  margin-bottom: 16px;
+}
+
+.amount-label {
+  color: #667085;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+.amount {
+  font-size: 36px;
+  font-weight: 800;
+  color: #087443;
+}
+
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #eaf8f0;
+  color: #087443;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.value {
+  margin-top: 6px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.timer {
+  background: #101828;
+  color: white;
+  text-align: center;
+  border-radius: 17px;
+  padding: 22px;
+}
+
+.timer-title {
+  font-size: 12px;
+  opacity: .65;
+  margin-bottom: 10px;
+}
+
+#countdown {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.bank-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 13px;
+}
+
+.bank {
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 9px;
+  text-align: left;
+  cursor: not-allowed;
+  color: #344054;
+}
+
+.bank strong {
+  display: block;
+  font-size: 14px;
+}
+
+.bank span {
+  font-size: 11px;
+  color: #98a2b3;
+}
+
+.withdraw {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  background: #d0d5dd;
+  color: #475467;
+  font-weight: 800;
+  cursor: not-allowed;
+}
+
+.notice {
+  background: #fff8e8;
+  border: 1px solid #f6dfad;
+  color: #795600;
+  border-radius: 13px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.footer {
+  text-align: center;
+  color: #98a2b3;
+  font-size: 11px;
+  margin-top: 18px;
+}
+
+@media(max-width:400px) {
+  .amount { font-size: 31px; }
+  #countdown { font-size: 32px; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="demo">
+
+  <div class="demo-label">
+    DEMOSTRACIÓN / MOCKUP — NO ES UNA CUENTA FINANCIERA REAL
+  </div>
+
+  <div class="header">
+    <div class="brand">PANEL DE CUENTA</div>
+
+    <div class="name">
+      Rancho Viejo
+    </div>
+
+    <div class="subtitle">
+      Resumen de bonificación
+    </div>
+  </div>
+
+  <div class="content">
+
+    <div class="card">
+
+      <div class="amount-label">
+        Bono / Ganancia
+      </div>
+
+      <div class="amount">
+        $12,000 MXN
+      </div>
+
+      <div class="status">
+        Bono registrado — DEMO
+      </div>
+
+    </div>
+
+
+    <div class="grid">
+
+      <div class="card">
+        <div class="amount-label">
+          Tarifa indicada
+        </div>
+
+        <div class="value">
+          $700 MXN
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="amount-label">
+          Estado
+        </div>
+
+        <div class="value">
+          DEMO
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="timer card">
+
+      <div class="timer-title">
+        CUENTA REGRESIVA DE DEMOSTRACIÓN
+      </div>
+
+      <div id="countdown">
+        18:12:33
+      </div>
+
+    </div>
+
+
+    <div class="card">
+
+      <div class="bank-title">
+        Seleccionar banco de México
+      </div>
+
+      <button class="bank" disabled>
+        <strong>BBVA México</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banorte</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Citibanamex</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Santander México</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>HSBC México</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Scotiabank México</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>Banco Azteca</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="bank" disabled>
+        <strong>BanBajío</strong>
+        <span>Opción de demostración</span>
+      </button>
+
+      <button class="withdraw" disabled>
+        Retirar al banco
+      </button>
+
+    </div>
+
+
+    <div class="notice">
+      This is a demonstration interface only. The displayed
+      balance, fee, countdown and bank-selection controls
+      do not represent a verified financial account or
+      actual withdrawal requirement. No payment should be
+      made based solely on this page.
+    </div>
+
+
+    <div class="footer">
+      © 2026 Rancho Viejo — Demo
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+/*
+  Persistent demonstration countdown.
+
+  Starting value:
+  18 hours, 12 minutes, 33 seconds.
+
+  The expiry timestamp is stored locally,
+  so refreshing the page does not restart it.
+*/
+
+const STORAGE_KEY =
+  "rancho_viejo_demo_timer";
+
+const duration =
+  (18 * 60 * 60) +
+  (12 * 60) +
+  33;
+
+let expiry =
+  localStorage.getItem(STORAGE_KEY);
+
+if (!expiry) {
+  expiry =
+    Date.now() + duration * 1000;
+
+  localStorage.setItem(
+    STORAGE_KEY,
+    expiry
+  );
+}
+
+expiry = Number(expiry);
+
+function updateTimer() {
+
+  const remaining =
+    Math.max(0, expiry - Date.now());
+
+  const total =
+    Math.floor(remaining / 1000);
+
+  const hours =
+    Math.floor(total / 3600);
+
+  const minutes =
+    Math.floor((total % 3600) / 60);
+
+  const seconds =
+    total % 60;
+
+  document.getElementById(
+    "countdown"
+  ).textContent =
+    String(hours).padStart(2, "0") + ":" +
+    String(minutes).padStart(2, "0") + ":" +
+    String(seconds).padStart(2, "0");
+
+  if (remaining <= 0) {
+    clearInterval(timer);
+  }
+}
+
+updateTimer();
+
+const timer =
+  setInterval(updateTimer, 1000);
+
+</script>
+
+</body>
+</html>
