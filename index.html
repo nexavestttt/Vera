@@ -335,63 +335,48 @@ body {
       >
 
         <div class="detail-row">
-
           <div class="detail-label">
             Account holder
           </div>
-
           <div class="detail-value">
             Maria Fernanda Osuna Ruiz
           </div>
-
         </div>
 
         <div class="detail-row">
-
           <div class="detail-label">
             Account number
           </div>
-
           <div class="detail-value">
             1566895387
           </div>
-
         </div>
 
         <div class="detail-row">
-
           <div class="detail-label">
             Account clave number
           </div>
-
           <div class="detail-value">
-            ••••••••••••••••3872
+            [CLABE]
           </div>
-
         </div>
 
         <div class="detail-row">
-
           <div class="detail-label">
             Account Card number
           </div>
-
           <div class="detail-value">
-            ••••••••••••4706
+            [CARD NUMBER]
           </div>
-
         </div>
 
         <div class="detail-row">
-
           <div class="detail-label">
             Concept of payment
           </div>
-
           <div class="detail-value">
             Pago
           </div>
-
         </div>
 
       </div>
@@ -455,11 +440,9 @@ body {
     </div>
 
     <div class="notice">
-
       Esta interfaz es un prototipo. Los saldos, tarifas,
       cuenta regresiva y opciones bancarias mostrados aquí
       no constituyen una cuenta financiera verificada.
-
     </div>
 
   </div>
@@ -491,11 +474,8 @@ function mostrarDeposito() {
       "Ocultar datos de depósito";
 
   }
-
 }
 
-
-/* CUENTA REGRESIVA */
 
 const STORAGE_KEY =
   "rancho_viejo_timer";
@@ -521,6 +501,7 @@ if (!expiry) {
 }
 
 expiry = Number(expiry);
+
 
 function updateTimer() {
 
@@ -561,8 +542,8 @@ function updateTimer() {
   if (remaining <= 0) {
     clearInterval(timer);
   }
-
 }
+
 
 updateTimer();
 
