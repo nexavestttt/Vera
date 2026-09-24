@@ -1,540 +1,471 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Rancho Viejo — Account Panel</title>
+<title>Rancho Viejo — Panel de Cuenta</title>
 
 <style>
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
-    background: #f3f6fa;
-    color: #172033;
-    line-height: 1.5;
+  min-height: 100vh;
+  background: #f3f6fa;
+  color: #172033;
+  padding: 20px;
 }
 
-.container {
-    width: 100%;
-    max-width: 680px;
-    margin: auto;
-    padding: 18px;
+.demo {
+  max-width: 500px;
+  margin: auto;
+  background: #fff;
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0,0,0,.10);
 }
-
-/* HEADER */
 
 .header {
-    background: linear-gradient(135deg, #075e9b, #0b78c5);
-    color: white;
-    padding: 24px 20px;
-    border-radius: 18px;
-    margin-bottom: 18px;
-    box-shadow: 0 8px 25px rgba(0,70,130,.15);
+  background: #101828;
+  color: white;
+  padding: 28px 24px;
 }
 
-.header small {
-    opacity: .8;
-    font-size: 12px;
-    letter-spacing: 1px;
+.brand {
+  font-size: 13px;
+  opacity: .7;
+  margin-bottom: 20px;
 }
 
-.header h1 {
-    margin-top: 5px;
-    font-size: 25px;
+.name {
+  font-size: 27px;
+  font-weight: 800;
 }
 
-/* CARD */
+.subtitle {
+  margin-top: 5px;
+  font-size: 13px;
+  opacity: .65;
+}
+
+.content {
+  padding: 24px;
+}
 
 .card {
-    background: white;
-    border-radius: 18px;
-    padding: 21px;
-    margin-bottom: 18px;
-    box-shadow: 0 5px 22px rgba(16,24,40,.06);
+  border: 1px solid #eaecf0;
+  border-radius: 17px;
+  padding: 20px;
+  margin-bottom: 16px;
 }
 
-/* PROFILE */
-
-.profile {
-    display: flex;
-    align-items: center;
-    gap: 14px;
+.amount-label {
+  color: #667085;
+  font-size: 13px;
+  margin-bottom: 8px;
 }
 
-.avatar {
-    width: 58px;
-    height: 58px;
-    border-radius: 50%;
-    background: #0b78c5;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: 800;
+.amount {
+  font-size: 36px;
+  font-weight: 800;
+  color: #087443;
 }
 
-.profile-info h2 {
-    font-size: 19px;
+.status {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 7px 11px;
+  border-radius: 20px;
+  background: #eaf8f0;
+  color: #087443;
+  font-size: 12px;
+  font-weight: 700;
 }
 
-.profile-info p {
-    color: #667085;
-    font-size: 13px;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
 
-.account-status {
-    margin-left: auto;
-    background: #eaf7ef;
-    color: #16834b;
-    padding: 6px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 700;
+.value {
+  margin-top: 6px;
+  font-size: 19px;
+  font-weight: 700;
 }
 
-/* BALANCE */
-
-.section-label {
-    font-size: 12px;
-    color: #667085;
-    text-transform: uppercase;
-    letter-spacing: .7px;
+.timer {
+  background: #101828;
+  color: white;
+  text-align: center;
+  border-radius: 17px;
+  padding: 22px;
 }
 
-.balance {
-    font-size: 42px;
-    font-weight: 800;
-    margin-top: 4px;
+.timer-title {
+  font-size: 12px;
+  opacity: .65;
+  margin-bottom: 10px;
 }
 
-.balance-sub {
-    color: #16834b;
-    font-size: 13px;
-    font-weight: 600;
+#countdown {
+  font-size: 38px;
+  font-weight: 800;
+  letter-spacing: 2px;
 }
 
-.divider {
-    height: 1px;
-    background: #edf0f3;
-    margin: 18px 0;
+.bank-title {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 13px;
 }
 
-/* FEE */
-
-.fee-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+.bank {
+  width: 100%;
+  border: 1px solid #d0d5dd;
+  background: white;
+  border-radius: 12px;
+  padding: 13px;
+  margin-top: 9px;
+  text-align: left;
+  color: #344054;
 }
 
-.fee-value {
-    font-size: 24px;
-    font-weight: 800;
-    color: #c0392b;
+.bank strong {
+  display: block;
+  font-size: 14px;
 }
 
-.unpaid {
-    background: #fff0ee;
-    color: #c0392b;
-    padding: 6px 10px;
-    border-radius: 8px;
-    font-size: 11px;
-    font-weight: 800;
+.bank span {
+  font-size: 11px;
+  color: #98a2b3;
 }
 
-/* DEPOSIT */
-
-.deposit-title {
-    font-size: 20px;
-    font-weight: 800;
+.deposit {
+  width: 100%;
+  margin-top: 15px;
+  padding: 15px;
+  border: none;
+  border-radius: 13px;
+  background: #0b78c5;
+  color: white;
+  font-weight: 800;
+  cursor: pointer;
 }
 
-.deposit-description {
-    color: #667085;
-    font-size: 13px;
-    margin-top: 4px;
+.deposit:hover {
+  background: #075e9b;
 }
 
-.deposit-amount {
-    margin-top: 16px;
-    background: #f8fafc;
-    border: 1px solid #e4e7ec;
-    border-radius: 12px;
-    padding: 15px;
+.deposit-info {
+  display: none;
+  margin-top: 14px;
+  padding: 14px;
+  border-radius: 13px;
+  background: #f8fafc;
+  border: 1px solid #eaecf0;
+  color: #475467;
+  font-size: 12px;
+  line-height: 1.6;
 }
 
-.deposit-amount span {
-    display: block;
-    color: #667085;
-    font-size: 12px;
+.deposit-info.show {
+  display: block;
 }
-
-.deposit-amount strong {
-    display: block;
-    margin-top: 3px;
-    font-size: 25px;
-}
-
-.deposit-button {
-    width: 100%;
-    margin-top: 14px;
-    padding: 13px;
-    border: none;
-    border-radius: 10px;
-    background: #0b78c5;
-    color: white;
-    font-weight: 800;
-    cursor: pointer;
-}
-
-.deposit-button:hover {
-    background: #075e9b;
-}
-
-/* PAYMENT DETAILS */
-
-.payment-details {
-    display: none;
-    margin-top: 16px;
-    background: #f8fafc;
-    border: 1px solid #e4e7ec;
-    border-radius: 14px;
-    padding: 16px;
-}
-
-.payment-details.active {
-    display: block;
-}
-
-.payment-row {
-    padding: 10px 0;
-    border-bottom: 1px solid #e4e7ec;
-}
-
-.payment-row:last-child {
-    border-bottom: none;
-}
-
-.payment-label {
-    display: block;
-    color: #667085;
-    font-size: 11px;
-    margin-bottom: 3px;
-}
-
-.payment-value {
-    font-size: 14px;
-    font-weight: 700;
-    word-break: break-word;
-}
-
-/* NOTICE */
 
 .notice {
-    background: #f8fafc;
-    border: 1px solid #e4e7ec;
-    color: #667085;
-    padding: 14px;
-    border-radius: 12px;
-    font-size: 11px;
-    line-height: 1.6;
+  background: #fff8e8;
+  border: 1px solid #f6dfad;
+  color: #795600;
+  border-radius: 13px;
+  padding: 14px;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-top: 20px;
+  text-align: left;
 }
-
-/* FOOTER */
 
 .footer {
-    text-align: center;
-    color: #98a2b3;
-    font-size: 11px;
-    padding: 10px 0 25px;
+  text-align: center;
+  color: #98a2b3;
+  font-size: 11px;
+  margin-top: 18px;
 }
 
-/* MOBILE */
+@media(max-width:400px) {
+  .amount {
+    font-size: 31px;
+  }
 
-@media(max-width:480px) {
-
-    .container {
-        padding: 12px;
-    }
-
-    .header {
-        padding: 20px 17px;
-    }
-
-    .balance {
-        font-size: 35px;
-    }
-
-    .account-status {
-        display: none;
-    }
+  #countdown {
+    font-size: 32px;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
+<div class="demo">
 
-    <!-- HEADER -->
+  <div class="header">
 
-    <div class="header">
-        <small>ACCOUNT PANEL</small>
-        <h1>Rancho Viejo</h1>
+    <div class="brand">
+      PANEL DE CUENTA
     </div>
 
+    <div class="name">
+      Rancho Viejo
+    </div>
 
-    <!-- PROFILE -->
+    <div class="subtitle">
+      Resumen de bonificación
+    </div>
+
+  </div>
+
+
+  <div class="content">
 
     <div class="card">
 
-        <div class="profile">
+      <div class="amount-label">
+        Bono / Ganancia
+      </div>
 
-            <div class="avatar">
-                MV
-            </div>
+      <div class="amount">
+        $12,000 MXN
+      </div>
 
-            <div class="profile-info">
-                <h2>Maria Fernanda Osuna Ruiz</h2>
-                <p>Personal Account</p>
-            </div>
-
-            <div class="account-status">
-                ACTIVE
-            </div>
-
-        </div>
+      <div class="status">
+        Bono registrado
+      </div>
 
     </div>
 
 
-    <!-- ACCOUNT BALANCE -->
+    <div class="grid">
+
+      <div class="card">
+
+        <div class="amount-label">
+          Tarifa indicada
+        </div>
+
+        <div class="value">
+          $1,000 MXN
+        </div>
+
+      </div>
+
+
+      <div class="card">
+
+        <div class="amount-label">
+          Estado
+        </div>
+
+        <div class="value">
+          Pendiente
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <div class="timer card">
+
+      <div class="timer-title">
+        CUENTA REGRESIVA
+      </div>
+
+      <div id="countdown">
+        18:12:33
+      </div>
+
+    </div>
+
 
     <div class="card">
 
-        <div class="section-label">
-            Account Balance
-        </div>
-
-        <div class="balance">
-            $0.00
-        </div>
-
-        <div class="balance-sub">
-            Account information
-        </div>
-
-        <div class="divider"></div>
-
-        <div class="fee-row">
-
-            <div>
-                <div class="section-label">
-                    Processing Fee
-                </div>
-
-                <div class="fee-value">
-                    1,000 Pesos
-                </div>
-            </div>
-
-            <div class="unpaid">
-                NOT PAID
-            </div>
-
-        </div>
-
-    </div>
+      <div class="bank-title">
+        Seleccionar banco de México
+      </div>
 
 
-    <!-- DEPOSIT -->
-
-    <div class="card">
-
-        <div class="deposit-title">
-            Deposit
-        </div>
-
-        <div class="deposit-description">
-            Deposit the required amount using the account details below.
-        </div>
-
-        <div class="deposit-amount">
-
-            <span>Required Deposit</span>
-
-            <strong>
-                1,000 Pesos
-            </strong>
-
-        </div>
-
-        <button
-            class="deposit-button"
-            onclick="showDepositDetails()">
-
-            Deposit 1,000 Pesos
-
-        </button>
+      <button class="bank">
+        <strong>BBVA México</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-        <!-- PAYMENT DETAILS -->
-
-        <div
-            id="paymentDetails"
-            class="payment-details">
-
-            <div class="payment-row">
-
-                <span class="payment-label">
-                    Account Holder
-                </span>
-
-                <div class="payment-value">
-                    Maria Fernanda Osuna Ruiz
-                </div>
-
-            </div>
+      <button class="bank">
+        <strong>Banorte</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-            <div class="payment-row">
-
-                <span class="payment-label">
-                    Account Number
-                </span>
-
-                <div class="payment-value">
-                    1566895387
-                </div>
-
-            </div>
+      <button class="bank">
+        <strong>Citibanamex</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-            <div class="payment-row">
-
-                <span class="payment-label">
-                    CLABE
-                </span>
-
-                <div class="payment-value">
-                    012580015668953872
-                </div>
-
-            </div>
+      <button class="bank">
+        <strong>Santander México</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-            <div class="payment-row">
-
-                <span class="payment-label">
-                    Card Number
-                </span>
-
-                <div class="payment-value">
-                    4152314674804706
-                </div>
-
-            </div>
+      <button class="bank">
+        <strong>HSBC México</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-            <div class="payment-row">
-
-                <span class="payment-label">
-                    Concept of Payment
-                </span>
-
-                <div class="payment-value">
-                    Pago
-                </div>
-
-            </div>
+      <button class="bank">
+        <strong>Scotiabank México</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
 
-            <div class="payment-row">
+      <button class="bank">
+        <strong>Banco Azteca</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
-                <span class="payment-label">
-                    Amount
-                </span>
 
-                <div class="payment-value">
-                    1,000 Pesos
-                </div>
+      <button class="bank">
+        <strong>BanBajío</strong>
+        <span>Banco seleccionado</span>
+      </button>
 
-            </div>
 
-        </div>
+      <button
+        class="deposit"
+        onclick="mostrarDeposito()">
+        Depósito
+      </button>
+
+      <div id="depositInfo" class="deposit-info">
+        <strong>Información del depósito</strong><br><br>
+
+        El importe indicado actualmente es de
+        <strong>$1,000 MXN</strong>.
+
+        <br><br>
+
+        Esta sección es únicamente informativa y no procesa,
+        confirma ni verifica transferencias bancarias.
+      </div>
 
     </div>
 
-
-    <!-- DISCLOSURE -->
-
-    <div class="card">
-
-        <div class="notice">
-
-            <strong>Prototype interface:</strong>
-            The displayed balance, fee status, deposit amount and payment
-            details are interface elements only. This page does not process,
-            confirm, or verify a real bank transfer or payment.
-
-            <br><br>
-
-            Do not treat this page as confirmation that a payment has been
-            received or that a financial account or withdrawal requirement
-            has been officially verified.
-
-        </div>
-
-    </div>
-
-
-    <!-- FOOTER -->
 
     <div class="footer">
-        © 2026 Rancho Viejo
+      © 2026 Rancho Viejo
     </div>
+
+
+    <div class="notice">
+
+      Esta es una interfaz de prototipo. El saldo mostrado,
+      la tarifa, la cuenta regresiva y las opciones bancarias
+      no representan una cuenta financiera verificada ni una
+      obligación real de pago o retiro.
+
+      <br><br>
+
+      No se debe realizar ningún pago basándose únicamente
+      en esta página.
+
+    </div>
+
+  </div>
 
 </div>
 
 
 <script>
 
-function showDepositDetails() {
+const STORAGE_KEY = "rancho_viejo_demo_timer";
 
-    const details =
-        document.getElementById("paymentDetails");
+const duration =
+  (18 * 60 * 60) +
+  (12 * 60) +
+  33;
 
-    const button =
-        document.querySelector(".deposit-button");
+let expiry =
+  localStorage.getItem(STORAGE_KEY);
 
-    if (details.classList.contains("active")) {
+if (!expiry) {
 
-        details.classList.remove("active");
+  expiry =
+    Date.now() + (duration * 1000);
 
-        button.textContent =
-            "Deposit 1,000 Pesos";
+  localStorage.setItem(
+    STORAGE_KEY,
+    expiry
+  );
 
-    } else {
-
-        details.classList.add("active");
-
-        button.textContent =
-            "Hide Deposit Details";
-
-        details.scrollIntoView({
-            behavior: "smooth",
-            block: "nearest"
-        });
-
-    }
 }
+
+expiry = Number(expiry);
+
+
+function updateTimer() {
+
+  const remaining =
+    Math.max(0, expiry - Date.now());
+
+  const total =
+    Math.floor(remaining / 1000);
+
+  const hours =
+    Math.floor(total / 3600);
+
+  const minutes =
+    Math.floor((total % 3600) / 60);
+
+  const seconds =
+    total % 60;
+
+  document.getElementById(
+    "countdown"
+  ).textContent =
+
+    String(hours).padStart(2, "0")
+    + ":" +
+    String(minutes).padStart(2, "0")
+    + ":" +
+    String(seconds).padStart(2, "0");
+
+  if (remaining <= 0) {
+    clearInterval(timer);
+  }
+}
+
+
+function mostrarDeposito() {
+
+  const info =
+    document.getElementById("depositInfo");
+
+  info.classList.toggle("show");
+
+}
+
+
+updateTimer();
+
+const timer =
+  setInterval(updateTimer, 1000);
 
 </script>
 
